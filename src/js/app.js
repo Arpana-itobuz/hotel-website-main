@@ -24,27 +24,22 @@ let dataBox = document.querySelector(".data-box");
 
 submitButton.addEventListener("click", (e) => {
   e.preventDefault();
-  console.log(checkIn.value);
-  console.log(checkOut.value);
   let selecetedIndex = dropdownList.selectedIndex;
   let selectedOptionAdult = dropdownList.options[selecetedIndex];
   let selecetedIndexChild = dropdownListChild.selectedIndex;
   let selectedOptionChild = dropdownListChild.options[selecetedIndexChild];
-  ``;
+
   const formData = {
     checkIn: checkIn.value,
     checkOut: checkOut.value,
     adult: selectedOptionAdult.text,
     child: selectedOptionChild.text,
   };
-  // if (dataBox.classList.contains("hidden")){
   crossButton.addEventListener("click", () => {
     dataBox.classList.add("d-none");
   });
 
   dataBox.classList.remove("d-none");
-
-  // }
 
   checkingIn.textContent = formData.checkIn;
   checkingOut.textContent = formData.checkOut;
@@ -80,7 +75,7 @@ async function topSectionData() {
       return data.json();
     }
   );
-  console.log(topSectionRes);
+
   document.querySelector(
     ".top-section"
   ).style.backgroundImage = `url(${topSectionRes[0].imageURL})`;
@@ -98,10 +93,8 @@ async function cardData() {
   const cardRes = await fetch("http://127.0.0.1:5000/card").then((data) => {
     return data.json();
   });
-  console.log(cardRes);
 
   for (let i = 0; i < cardRes.length; i++) {
-    console.log(cardRes.length);
     document
       .querySelectorAll(".services-image")
       [i].setAttribute("src", `${cardRes[i].imageURL}`);
@@ -127,8 +120,6 @@ async function swipperData() {
   );
 
   for (let i = 0; i < swipperRes.length; i++) {
-    console.log(swipperRes.length);
-    console.log(swipperRes[i].imageURL);
     document
       .querySelectorAll(".swiper-image")
       [i].setAttribute("src", `${swipperRes[i].imageURL}`);
@@ -197,3 +188,21 @@ async function swipperData() {
 }
 
 swipperData();
+
+(() => {
+  const today = new Date().toISOString().split("T")[0];
+  checkIn.setAttribute("min", today);
+  checkOut.setAttribute("min", today);
+})();
+
+checkOut.addEventListener("click", () => {
+  if (checkIn.value.length > 0) {
+    checkOut.setAttribute("min", checkIn.value);
+  }
+});
+
+checkIn.addEventListener("click", () => {
+  if (checkOut.value.length > 0) {
+    checkIn.setAttribute("max", checkOut.value);
+  }
+});
