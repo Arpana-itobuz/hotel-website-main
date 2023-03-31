@@ -1,0 +1,178 @@
+/* By Athlon Front-End Team */
+
+/* Core variables */
+@import 'base/vars';
+
+/* CSS Reset */
+@import 'base/reset';
+
+/* CSS print */
+@import 'base/print';
+
+/* Fonts */
+// @import 'base/fonts';
+
+/* Mixins, helpers and functions */
+@import 'base/mixins';
+
+/* Vendor */
+
+/* Components */
+
+/* Browser specific styles */
+@import 'dirty/hacks';
+
+/* Demo Page styles */
+$color_1: #0a205c;
+$color_2: white;
+$color_3: aliceblue;
+$color_4: black;
+$font-family_1: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+$background-color_1: #0a205c;
+$background-color_2: #f9f6ee;
+$background-color_3: rgb(21, 233, 74);
+$background-color_4: rgb(8, 90, 28);
+$background-color_5: white;
+
+* {
+	font-family: $font-family_1;
+}
+
+.hidden {
+	display: none !important;
+}
+
+.top-section {
+	margin-left: 2.8rem;
+	margin-right: 2.8rem;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.image-width {
+	width: 30px;
+}
+
+.text-color {
+	color: $color_1;
+}
+
+.hotel1 {
+	position: absolute;
+	top: 3%;
+	right: 23%;
+}
+
+.hotel2 {
+	position: absolute;
+	top: 12%;
+	right: 10%;
+}
+
+.hotel3 {
+	position: absolute;
+	top: 40%;
+	right: 17%;
+}
+
+.relative {
+	position: relative;
+}
+
+.discover {
+	background: url(../images/design/swimming.jpeg);
+	background-repeat: no-repeat;
+	height: 60vh;
+}
+
+.bg-color {
+	background-color: $background-color_1 !important;
+}
+
+.bg-color-wheat {
+	background-color: $background-color_2;
+}
+
+.bg-color-owl {
+	background-color: $background-color_3;
+	width: 2rem;
+}
+
+.member-width {
+	width: 3rem;
+}
+
+.spacing-above {
+	margin-top: -36px;
+}
+
+.bg-color-rating {
+	background-color: $background-color_4;
+	width: 1px;
+}
+
+.button {
+	&:hover {
+		color: $color_1 !important;
+		background-color: $background-color_5 !important;
+		border: 2px solid #0a205c !important;
+	}
+}
+
+.white-button {
+	&:hover {
+		background-color: $background-color_1 !important;
+		color: $color_2 !important;
+	}
+}
+
+.width {
+	width: 100%;
+}
+
+.width-subscribe-button {
+    width: 75%;
+}
+
+.on-hover {
+	&:hover {
+		color: $color_3;
+		text-decoration: underline !important;
+	}
+}
+
+.top-section-hover {
+	&:hover {
+		background-color: $background-color_5 !important;
+		color: $color_4 !important;
+	}
+}
+
+.swiper-button-next {
+	&:after {
+		content: "" !important;
+	}
+}
+
+.swiper-button-prev {
+	&:after {
+		content: "" !important;
+	}
+}
+
+:root {
+	--swiper-theme-color: white !important;
+}
+
+@media screen and (min-width: 900px) {
+	.width {
+		width: 30% !important;
+		margin-right: 10rem;
+	}
+
+    .width-subscribe-button {
+        width: 45% !important;
+    }
+}
+
+
